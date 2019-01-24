@@ -16,16 +16,17 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'resume-stephen'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('resume-stephen');
-  });
-
-  it('should render title in a h1 tag', () => {
+  it('should contain the preloader', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to resume-stephen!');
+    expect(compiled.querySelector('app-preloader')).not.toBe(null);
+  });
+
+  it('should contain have a left block', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.container .left-col-block app-left-block')).not.toBe(null);
   });
 });
